@@ -45,26 +45,26 @@
       
       var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
-        var editor = "sorts\n" +
-            "    #diseases = {Fever,cold,thyroid,hives,diabetes}.\n" +
-            "    #medicine = {aspirin,antihistamines,tapazole,loratadine,insulin}.\n" +
-            "    #causes ={allergy,genetics,virus}.\n" +
-            "    #diagnosis={bloodtest,physical examination}.\n"+
-            "    #prevention={vaccination,hygiene}.\n"+
-            "predicates\n" +
-            "    treatment(#diseases,#medicine).\n" +
-            "   caution (#diseases, #prevention).\n" +
-            "    detection(#diseases, #diagnosis).\n" +
-            "    reason (#disesase, #cause).\n" +
-            "rules\n" +
-            "    treatment(Fever, aspirin).\n" +
-            "    treatment(cold, antihistamines).\n" +
-            "    caution(cold, vaccination).\n" +
-            "    caution(hives, hygiene).\n" +
-            "    detection(thyroid, bloodtest).\n" +
-            "    detection (hives, physical examination).\n" +
-            "    reason(cold, virus).\n"+
-            "    reason(thyroid, genetics).";
+//         var editor = "sorts\n" +
+//             "    #diseases = {Fever,cold,thyroid,hives,diabetes}.\n" +
+//             "    #medicine = {aspirin,antihistamines,tapazole,loratadine,insulin}.\n" +
+//             "    #causes ={allergy,genetics,virus}.\n" +
+//             "    #diagnosis={bloodtest,physical examination}.\n"+
+//             "    #prevention={vaccination,hygiene}.\n"+
+//             "predicates\n" +
+//             "    treatment(#diseases,#medicine).\n" +
+//             "   caution (#diseases, #prevention).\n" +
+//             "    detection(#diseases, #diagnosis).\n" +
+//             "    reason (#disesase, #cause).\n" +
+//             "rules\n" +
+//             "    treatment(Fever, aspirin).\n" +
+//             "    treatment(cold, antihistamines).\n" +
+//             "    caution(cold, vaccination).\n" +
+//             "    caution(hives, hygiene).\n" +
+//             "    detection(thyroid, bloodtest).\n" +
+//             "    detection (hives, physical examination).\n" +
+//             "    reason(cold, virus).\n"+
+//             "    reason(thyroid, genetics).";
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
