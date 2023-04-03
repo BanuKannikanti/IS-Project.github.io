@@ -51,19 +51,19 @@
             "    #diagnosis= {bloodtest,physical examination}.\n"+
             "    #prevention= {vaccination,hygiene}.\n"+
             "predicates\n" +
-            "    treatment(#diseases, #medicine).\n" +
-            "    caution(#diseases, #prevention).\n" +
-            "    detection(#diseases, #diagnosis).\n" +
-            "    reason(#disesase, #cause).\n" +
+            "    treatment(#medicine, #diseases).\n" +
+            "    caution(#prevention, #diseases).\n" +
+            "    detection(#diagnosis, #diseases).\n" +
+            "    reason(#cause, #disesase).\n" +
             "rules\n" +
-            "    treatment(fever, aspirin).\n" +
-            "    treatment(cold, antihistamines).\n" +
-            "    caution(cold, vaccination).\n" +
-            "    caution(hives, hygiene).\n" +
-            "    detection(thyroid, bloodtest).\n" +
-            "    detection hives, physical examination).\n" +
-            "    reason(cold, virus).\n"+
-            "    reason(thyroid, genetics).";
+            "    treatment(aspirin, fever).\n" +
+            "    treatment(antihistamines, cold).\n" +
+            "    caution(vaccination, cold).\n" +
+            "    caution(hygiene, hives).\n" +
+            "    detection(bloodtest, thyroid).\n" +
+            "    detection(physical examination, hives).\n" +
+            "    reason(virus, cold).\n"+
+            "    reason(genetics, thyroid).";
 
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
