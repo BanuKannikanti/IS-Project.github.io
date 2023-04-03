@@ -84,7 +84,8 @@
             var func = part[0];
             predicates[func] = {};
             var par = part[1].split(',').map(e => e.replace(/#|\)/g, '').trim());
-            var par1 = sorts[par[0]].slice(2);
+            console.log(par[0]);
+            var par1 = sorts[par[0]].slice();
             par1.push("X");
             par.splice(0, 1);
             par1.forEach(e => {
