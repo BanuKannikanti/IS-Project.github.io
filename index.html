@@ -45,19 +45,19 @@
         var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom", "from", "belongs"];
         var editor = "sorts\n" 
-            "    #diseases = {Fever,cold,thyroid,hives,diabetes}.\n" +
+            "    #diseases = {fever,cold,thyroid,hives,diabetes}.\n" +
             "    #medicine = {aspirin,antihistamines,tapazole,loratadine,insulin}.\n" +
             "    #causes ={allergy,genetics,virus}
             "    #diagnosis={bloodtest,physical examination}
             "    #prevention={vaccination,hygiene}
             "predicates\n" +
             "    treatment(#diseases,#medicine).\n" +
-            "    caution (#diseases, #prevention).\n" +
-            "    detection(#diseases, #diagnosis).\n" +
+            "    caution (#diseases,#prevention).\n" +
+            "    detection(#diseases,#diagnosis).\n" +
             "    reason (#disesase,#cause).\n" +
             "rules\n" +
-            "    treatment (Fever, aspirin).\n" +
-            "    treatment (cold, antihistamines).\n" +
+            "    treatment(fever,aspirin).\n" +
+            "    treatment (cold,antihistamines).\n" +
             "    caution (cold,vaccination).\n" +
             "    caution(hives,hygiene).\n" +
             "    detection(thyroid,bloodtest).\n" +
