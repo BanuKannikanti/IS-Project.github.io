@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='//www.aa.com/jquery.js'></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="fuzzyset.js"></script>
 
     <style>
+      
       #voice-input-btn {
         background-color: #4CAF50;
         border: none;
@@ -42,30 +42,49 @@
     <div id="answer-box"></div>
 
     <script>
-      
-      var isClose=true;
-        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
+        var isClose=true;
+        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom", "from", "belongs"];
         var editor = "sorts\n" +
-            "    #diseases = {Fever, cold, thyroid, hives, diabetes}.\n" +
-            "    #medicine = {aspirin, antihistamines, tapazole, loratadine, insulin}.\n" +
-            "    #causes ={allergy, genetics, virus}.\n" + 
-            "    #diagnosis={bloodtest, physical examination}.\n" + 
-            "    #prevention={vaccination, hygiene}.\n" + 
+            "    #apartment_name = {heritage, raiderpass}.\n" +
+            "    #apartment_block = {blocka, blockb}.\n" +
+            "    #room_number = {101,102,103,201,202,203}.\n" +
+            "    #tenant_name = {selena, shakira, maheshbabu, jagan}.\n" +
+            "    #apt_rooms = {onebhk, twobhk, threebhk}.\n" +
+            "    #room_rates = {500, 800, 1200}.\n" +
+            "    #room_mates = {3, 5, 7}.\n" +
+            "    #tenant_gender = {male,female}.\n" +
             "predicates\n" +
-            "    treatment(#diseases, #medicine).\n" +
-            "    caution (#diseases, #prevention).\n" +
-            "    detection(#diseases, #diagnosis).\n" +
-            "    reason (#disesase, #cause).\n" +
+            "    apartmentblock(#room_number, #apartment_block).\n" +
+            "    apartmentrent(#apt_rooms, #room_rates).\n" +
+            "    tenantname(#apartment_name, #tenant_name).\n" +
+            "    tenantgender(#apartment_name, #tenant_gender, #tenant_name).\n" +
+            "    tenantapt(#tenant_name, #apartment_name).\n" +
+            "    numberofroommates(#apt_rooms, #room_mates).\n" +
+            "    gender(#tenant_name, #tenant_gender).\n" +
             "rules\n" +
-            "    treatment(Fever, aspirin).\n" +
-            "    treatment(cold, antihistamines).\n" +
-            "    caution(cold, vaccination).\n" +
-            "    caution(hives, hygiene).\n" +
-            "    detection(thyroid, bloodtest).\n" +
-            "    detection(hives, physical examination).\n" +
-            "    reason(cold, virus).\n"+
-            "    reason(thyroid, genetics).";
-        // sorts
+            "    apartmentblock(101, blocka).\n" +
+            "    apartmentblock(102, blocka).\n" +
+            "    apartmentblock(103, blocka).\n" +
+            "    apartmentblock(201, blockb).\n" +
+            "    apartmentblock(202, blockb).\n" +
+            "    apartmentblock(203, blockb).\n" +
+            "    apartmentrent(onebhk, 500).\n" +
+            "    apartmentrent(twobhk, 800).\n" +
+            "    apartmentrent(threebhk, 1200).\n" +
+            "    tenantname(heritage,selena).\n" +
+            "    tenantname(raiderpass,jagan).\n" +
+            "    gender(selena, female).\n" +
+            "    gender(maheshbabu, male).\n" +
+            "    gender(jagan, male).\n" +
+            "    gender(shakira, female).\n" +
+            "    tenantapt(selena,heritage).\n" +
+            "    tenantapt(jagan,raiderpass).\n" +
+            "    numberofroommates(onebhk,3).\n" +
+            "    numberofroommates(twobhk,5).\n" +
+            "    numberofroommates(threebhk,7).\n" +
+            "    tenantgender(heritage, female, selena).\n" +
+            "    tenantgender(raiderpass, male, maheshbabu).";
+
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
         sortstring.splice(-1, 1);
@@ -84,7 +103,6 @@
             var func = part[0];
             predicates[func] = {};
             var par = part[1].split(',').map(e => e.replace(/#|\)/g, '').trim());
-            console.log(sorts[par[0]]);
             var par1 = sorts[par[0]].slice();
             par1.push("X");
             par.splice(0, 1);
@@ -114,7 +132,7 @@
             }
 
         }
-        all_predicates.push('speak spanish'); // extra terms
+        // all_predicates.push('speak spanish'); // extra terms
         a = FuzzySet(all_predicates);
       
       console.log(all_predicates)
@@ -212,36 +230,6 @@
         });
 
 
-
-          
-          //$.post("http://localhost/ajax.php", { url: "http://wave.ttu.edu/" , data:data}, function (response) {
-                // Expected response : answer sets
-                //$.post("http://localhost/ajax/ajax.js",  function (response) {
-                //$.post("http://localhost/ajaxtest.php", function (response) {  
-                 // $.post("https://cors-anywhere.herokuapp.com/http://wave.ttu.edu/", data, function (response) {
-                  
-                   // console.log(response);
-                  
-                  
-                   // var html = document.createElement("html");
-                   // html.innerHTML = response;
-                    // contentRan
-                   // var answerstring = html.querySelector("p").textContent.replace(/X =/gm, "");
-                  //  var answerarr = answerstring.split("\n");
-                  //  answerarr.splice(-1,1);
-                 //   console.log(answerarr);
-                 //   var pre_string = "The answer to your question " + transcript + " is ";
-                 //   answerstring = contentRan.answer[answerarr[0].toLowerCase().trim()]==undefined?
-                 //       (pre_string + (answerarr.length==1?answerstring:(answerarr.splice(-1, 0, "and"),answerarr.join())))
-                 //       : generaspeak(contentRan.answer[answerarr[0].toLowerCase().trim()]);
-                //    console.log(answerstring);
-                  
-                //   const answer = answerstring || 'Sorry, I could not find an answer.';
-               //   answerDiv.innerHTML = answer;
-               //   answerBox.innerHTML = answer;
-               //   console.log(answer);
-                    
-               // });
             }
         }
         
