@@ -44,15 +44,12 @@
     <script>
         var isClose=true;
         const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom", "from", "belongs"];
-        var editor = "sorts\n" +
-            "    #apartment_name = {heritage, raiderpass}.\n" +
-            "    #apartment_block = {blocka, blockb}.\n" +
-            "    #room_number = {101,102,103,201,202,203}.\n" +
-            "    #tenant_name = {selena, shakira, maheshbabu, jagan}.\n" +
-            "    #apt_rooms = {onebhk, twobhk, threebhk}.\n" +
-            "    #room_rates = {500, 800, 1200}.\n" +
-            "    #room_mates = {3, 5, 7}.\n" +
-            "    #tenant_gender = {male,female}.\n" +
+        var editor = "sorts\n" 
+            "    #diseases = {Fever,cold,thyroid,hives,diabetes}.\n" +
+            "    #medicine = {aspirin,antihistamines,tapazole,loratadine,insulin}.\n" +
+            "    #causes ={allergy,genetics,virus}
+            "    #diagnosis={bloodtest,physical examination}
+            "    #prevention={vaccination,hygiene}
             "predicates\n" +
             "    apartmentblock(#room_number, #apartment_block).\n" +
             "    apartmentrent(#apt_rooms, #room_rates).\n" +
