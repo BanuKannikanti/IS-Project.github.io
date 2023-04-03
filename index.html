@@ -51,36 +51,19 @@
             "    #diagnosis={bloodtest,physical examination}
             "    #prevention={vaccination,hygiene}
             "predicates\n" +
-            "    apartmentblock(#room_number, #apartment_block).\n" +
-            "    apartmentrent(#apt_rooms, #room_rates).\n" +
-            "    tenantname(#apartment_name, #tenant_name).\n" +
-            "    tenantgender(#apartment_name, #tenant_gender, #tenant_name).\n" +
-            "    tenantapt(#tenant_name, #apartment_name).\n" +
-            "    numberofroommates(#apt_rooms, #room_mates).\n" +
-            "    gender(#tenant_name, #tenant_gender).\n" +
+            "    treatment(#diseases,#medicine).\n" +
+            "    caution (#diseases, #prevention).\n" +
+            "    detection(#diseases, #diagnosis).\n" +
+            "    reason (#disesase,#cause).\n" +
             "rules\n" +
-            "    apartmentblock(101, blocka).\n" +
-            "    apartmentblock(102, blocka).\n" +
-            "    apartmentblock(103, blocka).\n" +
-            "    apartmentblock(201, blockb).\n" +
-            "    apartmentblock(202, blockb).\n" +
-            "    apartmentblock(203, blockb).\n" +
-            "    apartmentrent(onebhk, 500).\n" +
-            "    apartmentrent(twobhk, 800).\n" +
-            "    apartmentrent(threebhk, 1200).\n" +
-            "    tenantname(heritage,selena).\n" +
-            "    tenantname(raiderpass,jagan).\n" +
-            "    gender(selena, female).\n" +
-            "    gender(maheshbabu, male).\n" +
-            "    gender(jagan, male).\n" +
-            "    gender(shakira, female).\n" +
-            "    tenantapt(selena,heritage).\n" +
-            "    tenantapt(jagan,raiderpass).\n" +
-            "    numberofroommates(onebhk,3).\n" +
-            "    numberofroommates(twobhk,5).\n" +
-            "    numberofroommates(threebhk,7).\n" +
-            "    tenantgender(heritage, female, selena).\n" +
-            "    tenantgender(raiderpass, male, maheshbabu).";
+            "    treatment (Fever, aspirin).\n" +
+            "    treatment (cold, antihistamines).\n" +
+            "    caution (cold,vaccination).\n" +
+            "    caution(hives,hygiene).\n" +
+            "    detection(thyroid,bloodtest).\n" +
+            "    detection (hives,physical examination).\n" +
+            "    reason(cold,virus).\n"+
+            "    reason(thyroid,genetics).";
 
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
