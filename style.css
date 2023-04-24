@@ -1,55 +1,61 @@
+/* Customize font */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+.navbar-brand {
+  font-size: 2rem;
+}
+.nav-link {
+  font-size: 1.2rem;
+  color: #212529;
+}
+
+/* Main content styles */
 .container {
-  text-align: center;
-  margin: 50px auto;
+  max-width: 800px;
 }
-
-h1 {
-  font-size: 32px;
-}
-
-button {
+.card {
+  margin-top: 2rem;
+  border-radius: 0;
   border: none;
-  background: none;
-  font-size: 32px;
-  color: #666;
-  cursor: pointer;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+.card-header {
+  background-color: #6c757d;
+  color: #fff;
+  font-size: 1.5rem;
 }
 
-button i.fa {
-  /* change the color of the icon */
-  color: #3366cc;
+.card-body {
+  padding: 2rem;
+}
+.btn-primary,
+.btn-success {
+  border-radius: 0;
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+}
+.form-control {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1.2rem;
 }
 
-
-#text-input {
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 24px;
-  width: 400px;
+/* Footer styles */
+footer {
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #212529;
 }
-
-.hidden {
-  display: none;
-}
-
-#processing-msg {
-  margin-top: 20px;
-  font-size: 24px;
-}
-
-#answer {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #3366cc;
-}
-
-#answer-box {
-  margin-top: 20px;
-  font-size: 24px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 400px;
-  display: none; /* add this line */
-}
-
